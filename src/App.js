@@ -52,7 +52,7 @@ function App() {
         <p className="empty-task">No tasks, add a task</p>
       )}
       {/* Counter for tasks left */}
-      <button className="clear" onClick={() => setTasks([])}>Clear All Tasks</button>
+      <button className="clear" onClick={() => setTasks([])}>Clear All</button>
       <div className="counter">
         Tasks Left: {tasks.length}
       </div>
