@@ -30,6 +30,7 @@ function App() {
           value={newTask}
           onChange={handleTaskInputChange}
           placeholder="Enter a new task..."
+          required
         />
         <button className="submit" type="submit">Add Task</button>
       </form>
