@@ -4,6 +4,7 @@ import "./App.css";
 function App() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
+  const [showClearModal, setShowClearModal] = useState(false);
 
   const handleTaskInputChange = (event) => {
     setNewTask(event.target.value);
@@ -21,9 +22,22 @@ function App() {
     setTasks(tasks.filter((task, i) => i !== index));
   };
 
+  const handleClearAll = () => {
+    setShowClearModal(true);
+  };
+
+  const confirmClearAll = () => {
+    setTasks([]);
+    setShowClearModal(false);
+  };
+
+  const cancelClearAll = () => {
+    setShowClearModal(false);
+  };
+
   return (
     <div className="todo-list">
-      <h1>To-Do List</h1>
+      <h1 className="app-title">Get Done List</h1>
       <form onSubmit={handleTaskFormSubmit}>
         <input
           type="text"
@@ -31,8 +45,11 @@ function App() {
           onChange={handleTaskInputChange}
           placeholder="Enter a new task..."
           required
+          aria-label="Enter a new task"
         />
-        <button className="submit" type="submit">Add Task</button>
+        <button className="submit" type="submit">
+          Add Task
+        </button>
       </form>
       {tasks.length > 0 ? (
         <ul>
@@ -52,14 +69,26 @@ function App() {
         <p className="empty-task">No tasks, add a task</p>
       )}
       {/* Counter for tasks left */}
-      <button className="clear" onClick={() => setTasks([])}>Clear All</button>
-      <div className="counter">
-        Tasks Left: {tasks.length}
-      </div>
+      <button className="clear" onClick={handleClearAll}>
+        Clear All
+      </button>
+      <div className="counter">Tasks Left: {tasks.length}</div>
+
+      {showClearModal && (
+        <div className="modal-overlay">
+          <div className="modal">
+            <p>Are you sure you want to clear all tasks?</p>
+            <button className="confirm" onClick={confirmClearAll}>
+              Yes
+            </button>
+            <button className="cancel" onClick={cancelClearAll}>
+              No
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
-  
 }
-
 
 export default App;
