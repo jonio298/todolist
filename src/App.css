@@ -1,5 +1,5 @@
 .app-title {
-  color: #61dafb; /* React blue color */
+  color: #61dafb;
   text-align: center;
   margin-bottom: 20px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -53,6 +53,7 @@ input {
   border-radius: 5px;
   margin-right: 10px;
   width: 70%;
+  max-width: 100%;
 }
 
 .submit,
@@ -67,25 +68,22 @@ input {
   transition: background-color 0.3s;
 }
 
-.submit:hover
-{
+.submit:hover {
   background-color: #4fa3d1;
 }
 
 .delete-button:hover,
-.clear:hover 
-{
-  background-color: #a30505 
+.clear:hover {
+  background-color: #a30505;
 }
 
-.submit:active
-{
+.submit:active {
   transform: scale(0.95);
   box-shadow: 0 0 10px rgba(97, 218, 251, 0.5), 0 0 20px rgba(97, 218, 251, 0.7);
 }
+
 .delete-button:active,
-.clear:active 
-{
+.clear:active {
   transform: scale(0.95);
   box-shadow: 0 0 10px rgb(254, 0, 0), 0 0 20px rgb(254, 0, 0);
 }
@@ -103,7 +101,7 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  text-align: left; /* Align task text to the left */
+  text-align: left;
 }
 
 .delete-button {
@@ -129,7 +127,7 @@ li {
 }
 
 .counter {
-  color: #fff; /* White color for the text */
+  color: #fff;
   font-size: 1.2em;
   margin-top: 10px;
   position: absolute;
@@ -137,6 +135,7 @@ li {
   left: 10px;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.5);
 }
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -193,4 +192,14 @@ li {
   position: absolute;
   bottom: 10px;
   right: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .todo-list {
+    padding: 10px;
+  }
+
+  input {
+    width: 100%;
+  }
 }
