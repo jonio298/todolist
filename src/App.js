@@ -69,10 +69,11 @@ function App() {
         <p className="empty-task">No tasks, add a task</p>
       )}
       {/* Counter for tasks left */}
+      <div className="counter">Tasks Left: {tasks.length}</div>
+      {/* Clear All button */}
       <button className="clear" onClick={handleClearAll}>
         Clear All
       </button>
-      <div className="counter">Tasks Left: {tasks.length}</div>
 
       {showClearModal && (
         <div className="modal-overlay">

@@ -129,9 +129,13 @@ li {
 }
 
 .counter {
-  color: #61dafb;
+  color: #fff; /* White color for the text */
   font-size: 1.2em;
   margin-top: 10px;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.5);
 }
 .modal-overlay {
   position: fixed;
@@ -173,4 +177,20 @@ li {
 .cancel {
   background-color: #ff4b4b;
   color: #fff;
+}
+
+.todo-list {
+  position: relative;
+}
+
+.counter {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.clear {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }
